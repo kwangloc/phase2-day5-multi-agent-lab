@@ -1,0 +1,214 @@
+{
+  "query": "Explain supervisor-based multi-agent workflows",
+  "metrics": [
+    {
+      "run_name": "baseline",
+      "latency_seconds": 8.752403399994364,
+      "estimated_cost_usd": 0.00024765,
+      "quality_score": 5.0,
+      "citation_coverage": null,
+      "error_count": 0,
+      "notes": "sources=0, errors=0"
+    },
+    {
+      "run_name": "multi-agent",
+      "latency_seconds": 16.40751259998069,
+      "estimated_cost_usd": 0.0019049999999999998,
+      "quality_score": 10.0,
+      "citation_coverage": 1.0,
+      "error_count": 0,
+      "notes": "sources=5, errors=0, citations=100%, route=researcher->analyst->writer->done"
+    }
+  ],
+  "states": {
+    "baseline": {
+      "request": {
+        "query": "Explain supervisor-based multi-agent workflows",
+        "max_sources": 5,
+        "audience": "technical learners"
+      },
+      "iteration": 0,
+      "route_history": [],
+      "sources": [],
+      "research_notes": null,
+      "analysis_notes": null,
+      "final_answer": "Supervisor-based multi-agent workflows involve organizing and managing multiple autonomous agents within a defined supervisory framework to accomplish complex tasks collaboratively. In this paradigm, a supervisory agent or system oversees the coordination of various agents, ensuring that they work in synergy towards common goals while maintaining efficiency and autonomy.\n\n### Key Considerations:\n\n1. **Role of Supervisors**:\n   - Supervisory agents are responsible for assigning tasks, monitoring performance, and ensuring compliance with workflow protocols.\n   - They enable resource allocation, conflict resolution, and communication among agents.\n\n2. **Agent Autonomy**:\n   - Individual agents retain a degree of autonomy to make decisions and adapt to dynamic environments, promoting agility and responsiveness.\n   - Balancing autonomy with supervision is critical to prevent bottlenecks and ensure efficient operations.\n\n3. **Communication Protocols**:\n   - Effective communication mechanisms are essential for information sharing and coordination among agents, including message passing, event-driven systems, or shared data states.\n\n4. **Task Decomposition**:\n   - Workflows may require breaking down larger tasks into smaller, manageable sub-tasks, which can be distributed among agents to enhance parallelism and speed.\n\n5. **Scalability**:\n   - The architecture should be designed to scale efficiently, enabling the addition of new agents without significant overhead to the supervisory framework.\n\n6. **Multi-Agent Coordination**:\n   - Algorithms and strategies such as consensus protocols, game theory, or negotiation tactics may be deployed to manage collaboration and competition among agents.\n\n7. **Fault Tolerance and Redundancy**:\n   - The system should be resilient to agent failures, enabling the supervisor to reassign tasks or redistribute workloads as necessary.\n\n8. **Performance Metrics**:\n   - Defining success criteria and KPIs is crucial for evaluating the effectiveness and efficiency of the workflow, influencing adjustments to the supervisory strategies.\n\nSupervisor-based multi-agent workflows are commonly applied in diverse domains, including robotics, logistics, and service management, where complex and dynamic task environments necessitate a coordinated, flexible approach.",
+      "agent_results": [],
+      "trace": [
+        {
+          "name": "baseline.complete",
+          "payload": {
+            "input_tokens": 39,
+            "output_tokens": 403,
+            "cost_usd": 0.00024765
+          }
+        }
+      ],
+      "errors": []
+    },
+    "multi-agent": {
+      "request": {
+        "query": "Explain supervisor-based multi-agent workflows",
+        "max_sources": 5,
+        "audience": "technical learners"
+      },
+      "iteration": 4,
+      "route_history": [
+        "researcher",
+        "analyst",
+        "writer",
+        "done"
+      ],
+      "sources": [
+        {
+          "title": "LangGraph-Supervisor: Building Multi-Agent Workflows",
+          "url": "https://www.buildfastwithai.com/blogs/langgraph-supervisor-building-multi-agent-workflows",
+          "snippet": "LangGraph-Supervisor simplifies the creation of hierarchical multi-agent systems, allowing a central supervisor agent to manage task delegation and",
+          "metadata": {
+            "provider": "tavily",
+            "rank": 1
+          }
+        },
+        {
+          "title": "Agent Supervisor in Multi-Agent Workflow in LangGraph - Medium",
+          "url": "https://medium.com/@kbdhunga/agent-supervisor-in-multi-agent-workflow-in-langgraph-6653a2994ca9",
+          "snippet": "The Agent Supervisor in LangGraph serves as a central controller within multi-agent workflows, orchestrating the communication and task distribution among",
+          "metadata": {
+            "provider": "tavily",
+            "rank": 2
+          }
+        },
+        {
+          "title": "Setting Up the Supervisor Agent | Multi Agent Workflows for Beginners",
+          "url": "https://www.youtube.com/watch?v=dGOpZCXmGHo",
+          "snippet": "In Part 8, we build the brain of our workflow \u2014 the supervisor agent that controls routing and coordination. In this session: - Define the",
+          "metadata": {
+            "provider": "tavily",
+            "rank": 3
+          }
+        },
+        {
+          "title": "Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows",
+          "url": "https://medium.com/@mohitbasantani1987/supervisor-driven-multi-agent-systems-a-blueprint-for-scalable-ai-workflows-96b8b78e440f",
+          "snippet": "# Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows | by mohit basantani | Medium. # Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows. Multi-agent systems represent a paradigm shift in AI application design, where specialized agents collaborate under a central supervisor to solve complex tasks. *   _Uses handoff tools to transfer control to worker agents._. *   _Maintains conversation history and state._. *   _Return results to supervisor after task completion._. *   _Tools to pass data between agents._. Here\u2019s a complete workflow using two agents (Researcher and Coder) supervised by a coordinator:. from langchain_core.messages import HumanMessage. # Supervisor agent. 1.   Supervisor routes to researcher agent. Image 20: Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI. ## [Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI ### This is an end to end project on building a multi-agent insurance support system using Agentic AI [LangGraph and OpenAI API].",
+          "metadata": {
+            "provider": "tavily",
+            "rank": 4
+          }
+        },
+        {
+          "title": "What Is a Supervisor Agent? Multi-Agent Orchestration Explained | GAIA",
+          "url": "https://heygaia.io/learn/supervisor-agent",
+          "snippet": "# Supervisor Agent. A supervisor agent is an AI agent that coordinates the work of multiple specialized subagents, breaking complex tasks into components, delegating each to the appropriate agent, and synthesizing their outputs into a coherent result. In a supervisor-worker architecture, the supervisor agent receives a high-level task and determines how to decompose it. A coordinator agent receives your request and determines which specialized subagents to invoke \u2014 email agent, calendar agent, task agent, or integration-specific agents. An agent loop is the iterative execution cycle of an AI agent in which it reasons about the current state, selects and executes an action (often a tool call), observes the result, and repeats until the task is complete or a stopping condition is reached.### Autonomous Agent. A subagent is a specialized AI agent that handles a specific component of a larger task within a multi-agent architecture, operating autonomously within its domain and reporting results to a coordinating supervisor agent.",
+          "metadata": {
+            "provider": "tavily",
+            "rank": 5
+          }
+        }
+      ],
+      "research_notes": "[1] LangGraph-Supervisor: Building Multi-Agent Workflows - LangGraph-Supervisor simplifies the creation of hierarchical multi-agent systems, allowing a central supervisor agent to manage task delegation and (https://www.buildfastwithai.com/blogs/langgraph-supervisor-building-multi-agent-workflows)\n[2] Agent Supervisor in Multi-Agent Workflow in LangGraph - Medium - The Agent Supervisor in LangGraph serves as a central controller within multi-agent workflows, orchestrating the communication and task distribution among (https://medium.com/@kbdhunga/agent-supervisor-in-multi-agent-workflow-in-langgraph-6653a2994ca9)\n[3] Setting Up the Supervisor Agent | Multi Agent Workflows for Beginners - In Part 8, we build the brain of our workflow \u2014 the supervisor agent that controls routing and coordination. In this session: - Define the (https://www.youtube.com/watch?v=dGOpZCXmGHo)\n[4] Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows - # Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows | by mohit basantani | Medium. # Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows. Multi-agent systems represent a paradigm shift in AI application design, where specialized agents collaborate under a central supervisor to solve complex tasks. *   _Uses handoff tools to transfer control to worker agents._. *   _Maintains conversation history and state._. *   _Return results to supervisor after task completion._. *   _Tools to pass data between agents._. Here\u2019s a complete workflow using two agents (Researcher and Coder) supervised by a coordinator:. from langchain_core.messages import HumanMessage. # Supervisor agent. 1.   Supervisor routes to researcher agent. Image 20: Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI. ## [Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI ### This is an end to end project on building a multi-agent insurance support system using Agentic AI [LangGraph and OpenAI API]. (https://medium.com/@mohitbasantani1987/supervisor-driven-multi-agent-systems-a-blueprint-for-scalable-ai-workflows-96b8b78e440f)\n[5] What Is a Supervisor Agent? Multi-Agent Orchestration Explained | GAIA - # Supervisor Agent. A supervisor agent is an AI agent that coordinates the work of multiple specialized subagents, breaking complex tasks into components, delegating each to the appropriate agent, and synthesizing their outputs into a coherent result. In a supervisor-worker architecture, the supervisor agent receives a high-level task and determines how to decompose it. A coordinator agent receives your request and determines which specialized subagents to invoke \u2014 email agent, calendar agent, task agent, or integration-specific agents. An agent loop is the iterative execution cycle of an AI agent in which it reasons about the current state, selects and executes an action (often a tool call), observes the result, and repeats until the task is complete or a stopping condition is reached.### Autonomous Agent. A subagent is a specialized AI agent that handles a specific component of a larger task within a multi-agent architecture, operating autonomously within its domain and reporting results to a coordinating supervisor agent. (https://heygaia.io/learn/supervisor-agent)",
+      "analysis_notes": "### Key Claims\n- **Hierarchical Management**: Supervisor agents centralize task management in multi-agent systems, simplifying the delegation of tasks to specialized agents ([1], [4]).\n- **Task Decomposition**: The supervisor agent decomposes complex tasks into manageable components and allocates them to appropriate subagents ([5]).\n- **Orchestration of Communication**: Supervisor agents facilitate communication and coordination among various agents in the workflow ([2], [5]).\n- **State Management**: They maintain conversation history and the state of the workflow to ensure proper tracking and results reporting ([4]).\n- **Scalability**: The supervisor-driven approach allows for scalable AI workflows, making complex systems easier to manage and build ([4]).\n\n### Comparative Viewpoints\n- **Complexity Handling**: Both LangGraph resources ([1], [2]) emphasize the supervisor\u2019s role in managing complexity through hierarchical systems, while alternative viewpoints like those in [5] focus on decomposition and integration of specialized tasks.\n- **Focus on Collaboration**: Resources such as [4] and [5] highlight the cooperative nature of agents under supervision, contrasting some beginner explanations that may lack depth on agent interactions ([3]).\n\n### Weak or Unsupported Evidence\n- Some claims about the effectiveness of these workflows may lack empirical backing or comprehensive case studies demonstrating real-world applications and outcomes ([4], [5]).\n- Specific tools and systems mentioned may not provide detailed data or performance metrics to support assertions about improvements in practice ([4]).\n- Beginner-focused explanations ([3]) might oversimplify or not fully encapsulate the operational complexity and requirements for effectively setting up multi-agent systems, leading to potential misunderstandings for new practitioners.",
+      "final_answer": "### Supervisor-Based Multi-Agent Workflows\n\nIn the context of multi-agent systems (MAS), supervisor-based workflows provide a robust framework for managing complex tasks through a hierarchical structure. Here are the key components and benefits of such systems:\n\n1. **Hierarchical Management**: At the heart of these workflows is the supervisor agent, which acts as the central authority for managing tasks. This centralized control simplifies the delegation process, enabling efficient task management across various specialized agents ([1], [4]).\n\n2. **Task Decomposition and Allocation**: Supervisor agents are responsible for breaking down complex tasks into smaller, manageable components. They identify the appropriate subagents for each piece of the task, thereby facilitating a focused and specialized approach to task execution ([5]).\n\n3. **Orchestration of Communication**: These supervisor agents also play a critical role in orchestrating communication among different agents. This coordination helps ensure that all agents work harmoniously, sharing necessary information and updates throughout the workflow ([2], [5]).\n\n4. **State Management**: To keep track of ongoing processes, supervisor agents maintain a history of interactions and the state of the workflow. This function is crucial for monitoring progress and reporting the outcomes accurately to stakeholders ([4]).\n\n5. **Scalability**: One of the significant advantages of supervisor-driven architectures is their scalability. By using a central supervisor, systems can expand to accommodate more agents and complex tasks without losing coherence or manageability ([4]).\n\n### Comparative Insights\nWhile the aforementioned elements highlight the core strengths of supervisor-based workflows, it is essential to note that various resources emphasize different aspects of these systems. For instance, some highlight the challenge of managing complexity through hierarchical strategy ([1], [2]), while others focus on the necessity of collaboration among agents under the supervisor\u2019s guidance ([4], [5]). Furthermore, beginner resources might simplify these concepts, potentially omitting critical operational details that experienced practitioners would consider essential ([3]).\n\n### Caveats\nDespite the theoretical advantages of supervisor-based workflows, there are areas where empirical data remains sparse. Claims regarding their efficiency and effectiveness in real-world applications may require further investigation and validation ([4], [5]). Additionally, the complexity of setting up and managing these systems is often understated in introductory materials, which could mislead new practitioners expecting a more straightforward implementation ([3]).\n\nIn summary, supervisor-based multi-agent workflows represent a powerful method for orchestrating complex processes in AI systems, promoting efficiency, scalability, and effective communication among specialized agents. However, practitioners should be aware of the challenges involved and the necessity for a thorough understanding of the system's operational demands. \n\n### References\n[1] LangGraph-Supervisor: Building Multi-Agent Workflows (https://www.buildfastwithai.com/blogs/langgraph-supervisor-building-multi-agent-workflows)  \n[2] Agent Supervisor in Multi-Agent Workflow in LangGraph - Medium (https://medium.com/@kbdhunga/agent-supervisor-in-multi-agent-workflow-in-langgraph-6653a2994ca9)  \n[3] Setting Up the Supervisor Agent | Multi Agent Workflows for Beginners (https://www.youtube.com/watch?v=dGOpZCXmGHo)  \n[4] Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows (https://medium.com/@mohitbasantani1987/supervisor-driven-multi-agent-systems-a-blueprint-for-scalable-ai-workflows-96b8b78e440f)  \n[5] What Is a Supervisor Agent? Multi-Agent Orchestration Explained | GAIA (https://heygaia.io/learn/supervisor-agent)  ",
+      "agent_results": [
+        {
+          "agent": "researcher",
+          "content": "[1] LangGraph-Supervisor: Building Multi-Agent Workflows - LangGraph-Supervisor simplifies the creation of hierarchical multi-agent systems, allowing a central supervisor agent to manage task delegation and (https://www.buildfastwithai.com/blogs/langgraph-supervisor-building-multi-agent-workflows)\n[2] Agent Supervisor in Multi-Agent Workflow in LangGraph - Medium - The Agent Supervisor in LangGraph serves as a central controller within multi-agent workflows, orchestrating the communication and task distribution among (https://medium.com/@kbdhunga/agent-supervisor-in-multi-agent-workflow-in-langgraph-6653a2994ca9)\n[3] Setting Up the Supervisor Agent | Multi Agent Workflows for Beginners - In Part 8, we build the brain of our workflow \u2014 the supervisor agent that controls routing and coordination. In this session: - Define the (https://www.youtube.com/watch?v=dGOpZCXmGHo)\n[4] Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows - # Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows | by mohit basantani | Medium. # Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows. Multi-agent systems represent a paradigm shift in AI application design, where specialized agents collaborate under a central supervisor to solve complex tasks. *   _Uses handoff tools to transfer control to worker agents._. *   _Maintains conversation history and state._. *   _Return results to supervisor after task completion._. *   _Tools to pass data between agents._. Here\u2019s a complete workflow using two agents (Researcher and Coder) supervised by a coordinator:. from langchain_core.messages import HumanMessage. # Supervisor agent. 1.   Supervisor routes to researcher agent. Image 20: Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI. ## [Agentic AI Project: Build a Multi-Agent system with LangGraph and Open AI ### This is an end to end project on building a multi-agent insurance support system using Agentic AI [LangGraph and OpenAI API]. (https://medium.com/@mohitbasantani1987/supervisor-driven-multi-agent-systems-a-blueprint-for-scalable-ai-workflows-96b8b78e440f)\n[5] What Is a Supervisor Agent? Multi-Agent Orchestration Explained | GAIA - # Supervisor Agent. A supervisor agent is an AI agent that coordinates the work of multiple specialized subagents, breaking complex tasks into components, delegating each to the appropriate agent, and synthesizing their outputs into a coherent result. In a supervisor-worker architecture, the supervisor agent receives a high-level task and determines how to decompose it. A coordinator agent receives your request and determines which specialized subagents to invoke \u2014 email agent, calendar agent, task agent, or integration-specific agents. An agent loop is the iterative execution cycle of an AI agent in which it reasons about the current state, selects and executes an action (often a tool call), observes the result, and repeats until the task is complete or a stopping condition is reached.### Autonomous Agent. A subagent is a specialized AI agent that handles a specific component of a larger task within a multi-agent architecture, operating autonomously within its domain and reporting results to a coordinating supervisor agent. (https://heygaia.io/learn/supervisor-agent)",
+          "metadata": {
+            "source_count": 5
+          }
+        },
+        {
+          "agent": "analyst",
+          "content": "### Key Claims\n- **Hierarchical Management**: Supervisor agents centralize task management in multi-agent systems, simplifying the delegation of tasks to specialized agents ([1], [4]).\n- **Task Decomposition**: The supervisor agent decomposes complex tasks into manageable components and allocates them to appropriate subagents ([5]).\n- **Orchestration of Communication**: Supervisor agents facilitate communication and coordination among various agents in the workflow ([2], [5]).\n- **State Management**: They maintain conversation history and the state of the workflow to ensure proper tracking and results reporting ([4]).\n- **Scalability**: The supervisor-driven approach allows for scalable AI workflows, making complex systems easier to manage and build ([4]).\n\n### Comparative Viewpoints\n- **Complexity Handling**: Both LangGraph resources ([1], [2]) emphasize the supervisor\u2019s role in managing complexity through hierarchical systems, while alternative viewpoints like those in [5] focus on decomposition and integration of specialized tasks.\n- **Focus on Collaboration**: Resources such as [4] and [5] highlight the cooperative nature of agents under supervision, contrasting some beginner explanations that may lack depth on agent interactions ([3]).\n\n### Weak or Unsupported Evidence\n- Some claims about the effectiveness of these workflows may lack empirical backing or comprehensive case studies demonstrating real-world applications and outcomes ([4], [5]).\n- Specific tools and systems mentioned may not provide detailed data or performance metrics to support assertions about improvements in practice ([4]).\n- Beginner-focused explanations ([3]) might oversimplify or not fully encapsulate the operational complexity and requirements for effectively setting up multi-agent systems, leading to potential misunderstandings for new practitioners.",
+          "metadata": {
+            "input_tokens": 749,
+            "output_tokens": 336,
+            "cost_usd": 0.00031395
+          }
+        },
+        {
+          "agent": "writer",
+          "content": "### Supervisor-Based Multi-Agent Workflows\n\nIn the context of multi-agent systems (MAS), supervisor-based workflows provide a robust framework for managing complex tasks through a hierarchical structure. Here are the key components and benefits of such systems:\n\n1. **Hierarchical Management**: At the heart of these workflows is the supervisor agent, which acts as the central authority for managing tasks. This centralized control simplifies the delegation process, enabling efficient task management across various specialized agents ([1], [4]).\n\n2. **Task Decomposition and Allocation**: Supervisor agents are responsible for breaking down complex tasks into smaller, manageable components. They identify the appropriate subagents for each piece of the task, thereby facilitating a focused and specialized approach to task execution ([5]).\n\n3. **Orchestration of Communication**: These supervisor agents also play a critical role in orchestrating communication among different agents. This coordination helps ensure that all agents work harmoniously, sharing necessary information and updates throughout the workflow ([2], [5]).\n\n4. **State Management**: To keep track of ongoing processes, supervisor agents maintain a history of interactions and the state of the workflow. This function is crucial for monitoring progress and reporting the outcomes accurately to stakeholders ([4]).\n\n5. **Scalability**: One of the significant advantages of supervisor-driven architectures is their scalability. By using a central supervisor, systems can expand to accommodate more agents and complex tasks without losing coherence or manageability ([4]).\n\n### Comparative Insights\nWhile the aforementioned elements highlight the core strengths of supervisor-based workflows, it is essential to note that various resources emphasize different aspects of these systems. For instance, some highlight the challenge of managing complexity through hierarchical strategy ([1], [2]), while others focus on the necessity of collaboration among agents under the supervisor\u2019s guidance ([4], [5]). Furthermore, beginner resources might simplify these concepts, potentially omitting critical operational details that experienced practitioners would consider essential ([3]).\n\n### Caveats\nDespite the theoretical advantages of supervisor-based workflows, there are areas where empirical data remains sparse. Claims regarding their efficiency and effectiveness in real-world applications may require further investigation and validation ([4], [5]). Additionally, the complexity of setting up and managing these systems is often understated in introductory materials, which could mislead new practitioners expecting a more straightforward implementation ([3]).\n\nIn summary, supervisor-based multi-agent workflows represent a powerful method for orchestrating complex processes in AI systems, promoting efficiency, scalability, and effective communication among specialized agents. However, practitioners should be aware of the challenges involved and the necessity for a thorough understanding of the system's operational demands. \n\n### References\n[1] LangGraph-Supervisor: Building Multi-Agent Workflows (https://www.buildfastwithai.com/blogs/langgraph-supervisor-building-multi-agent-workflows)  \n[2] Agent Supervisor in Multi-Agent Workflow in LangGraph - Medium (https://medium.com/@kbdhunga/agent-supervisor-in-multi-agent-workflow-in-langgraph-6653a2994ca9)  \n[3] Setting Up the Supervisor Agent | Multi Agent Workflows for Beginners (https://www.youtube.com/watch?v=dGOpZCXmGHo)  \n[4] Supervisor-Driven Multi-Agent Systems: A Blueprint for Scalable AI Workflows (https://medium.com/@mohitbasantani1987/supervisor-driven-multi-agent-systems-a-blueprint-for-scalable-ai-workflows-96b8b78e440f)  \n[5] What Is a Supervisor Agent? Multi-Agent Orchestration Explained | GAIA (https://heygaia.io/learn/supervisor-agent)  ",
+          "metadata": {
+            "input_tokens": 1301,
+            "output_tokens": 739,
+            "cost_usd": 0.0006385499999999999
+          }
+        }
+      ],
+      "trace": [
+        {
+          "name": "supervisor.route",
+          "payload": {
+            "route": "researcher",
+            "iteration": 1,
+            "errors": 0,
+            "duration_seconds": 2.3999891709536314e-06
+          }
+        },
+        {
+          "name": "agent.researcher",
+          "payload": {
+            "source_count": 5,
+            "query": "Explain supervisor-based multi-agent workflows",
+            "duration_seconds": 1.2515017000259832
+          }
+        },
+        {
+          "name": "supervisor.route",
+          "payload": {
+            "route": "analyst",
+            "iteration": 2,
+            "errors": 0,
+            "duration_seconds": 6.599992047995329e-06
+          }
+        },
+        {
+          "name": "agent.analyst",
+          "payload": {
+            "input_tokens": 749,
+            "output_tokens": 336,
+            "cost_usd": 0.00031395,
+            "duration_seconds": 4.807792300009169
+          }
+        },
+        {
+          "name": "supervisor.route",
+          "payload": {
+            "route": "writer",
+            "iteration": 3,
+            "errors": 0,
+            "duration_seconds": 6.299989763647318e-06
+          }
+        },
+        {
+          "name": "agent.writer",
+          "payload": {
+            "input_tokens": 1301,
+            "output_tokens": 739,
+            "cost_usd": 0.0006385499999999999,
+            "duration_seconds": 9.952857299998868
+          }
+        },
+        {
+          "name": "supervisor.route",
+          "payload": {
+            "route": "done",
+            "iteration": 4,
+            "errors": 0,
+            "duration_seconds": 3.4999975468963385e-06
+          }
+        },
+        {
+          "name": "workflow.run",
+          "payload": {
+            "duration_seconds": 16.025616500002798,
+            "iterations": 4,
+            "errors": 0
+          }
+        }
+      ],
+      "errors": []
+    }
+  }
+}

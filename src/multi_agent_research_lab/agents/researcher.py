@@ -1,8 +1,14 @@
 """Researcher agent skeleton."""
 
+import logging
+
 from multi_agent_research_lab.agents.base import BaseAgent
-from multi_agent_research_lab.core.errors import StudentTodoError
+from multi_agent_research_lab.core.schemas import AgentName, AgentResult
 from multi_agent_research_lab.core.state import ResearchState
+from multi_agent_research_lab.observability.tracing import trace_span
+from multi_agent_research_lab.services.search_client import SearchClient
+
+logger = logging.getLogger(__name__)
 
 
 class ResearcherAgent(BaseAgent):
@@ -10,10 +16,40 @@ class ResearcherAgent(BaseAgent):
 
     name = "researcher"
 
+    def __init__(self, search_client: SearchClient | None = None) -> None:
+        self._search_client = search_client or SearchClient()
+
     def run(self, state: ResearchState) -> ResearchState:
         """Populate `state.sources` and `state.research_notes`.
-
-        TODO(student): Implement search, source filtering, citation capture, and notes.
         """
 
-        raise StudentTodoError("TODO(student): implement ResearcherAgent.run")
+        with trace_span("agent.researcher.run", {"query": state.request.query}) as span:
+            sources = self._search_client.search(
+                query=state.request.query,
+                max_results=state.request.max_sources,
+            )
+        state.sources = sources
+
+        lines = []
+        for index, source in enumerate(sources, start=1):
+            reference = source.url or "no-url"
+            lines.append(f"[{index}] {source.title} - {source.snippet} ({reference})")
+        state.research_notes = "\n".join(lines)
+        logger.info("Researcher gathered %s sources", len(sources))
+
+        state.agent_results.append(
+            AgentResult(
+                agent=AgentName.RESEARCHER,
+                content=state.research_notes,
+                metadata={"source_count": len(sources)},
+            )
+        )
+        state.add_trace_event(
+            "agent.researcher",
+            {
+                "source_count": len(sources),
+                "query": state.request.query,
+                "duration_seconds": span["duration_seconds"],
+            },
+        )
+        return state
